@@ -17,6 +17,7 @@ let tituloPelicula;
 let productoraPelicula;
 let controlador = false;
 let listaVMT = [];
+const listaTerminada = document.querySelector('.listaVerMasTarde');
 let opcion = prompt("Bienvenido, que desea hacer: / 1 : Agregar una pelicula a la lista 'ver más tarde' / 2 : Mostrar lista 'ver más tarde'.");
 
 //agregar las peliculas al array
@@ -36,10 +37,13 @@ if (opcion === "1") {
 
 if(opcion === "2"){
   if(controlador){
-    alert("Su lista 'ver más tarde' es: ");
-    for (let index = 0; index <= listaVMT.length; index++) {
-      const element = new Pelicula(listaVMT[index].titulo , listaVMT[index].productora);
-      element.imprimirPelicula();
+    const titulo = document.querySelector("h1");
+    titulo.innerHTML = "Su lista de 'ver más tarde' es: "
+    for(const pelicula of listaVMT){
+      const li = document.createElement("li");
+      console.log(pelicula);
+      li.innerHTML = `<p>Titulo: ${pelicula.titulo}, Productora: ${pelicula.productora}</p>`;
+      listaTerminada.append(li);
     }
   }else{
     alert("Su lista está vacia.");
