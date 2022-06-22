@@ -18,6 +18,9 @@ let productoraPelicula;
 let controlador = false;
 let listaVMT = [];
 const listaTerminada = document.querySelector('.listaVerMasTarde');
+const boton = document.querySelector('.botonMostrar');
+const contenedorPeliculas = document.querySelector('.peliculasVistas');
+const equis = document.querySelector('.equis');
 let opcion = prompt("Bienvenido, que desea hacer: / 1 : Agregar una pelicula a la lista 'ver más tarde' / 2 : Mostrar lista 'ver más tarde'.");
 
 //agregar las peliculas al array
@@ -52,8 +55,12 @@ if(opcion === "2"){
   alert("Opción no válida");
 }
 
+boton.onclick = () =>{
+  contenedorPeliculas.style.display = 'block';
+}
 
-
-
+equis.onclick = () =>{
+  contenedorPeliculas.style.display = 'none';
+}
 
 
